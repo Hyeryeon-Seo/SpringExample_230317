@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ <!-- dtd가 문법 틀린 거 찾아줌 -->
+ 
+ <!--여기서 정신놓고 하다, "package com.." 까지 복붙해버림ㅠㅠ_오류 주의!-->
+ <mapper namespace="com.example.lesson02.dao.UsedGoodsMapper"> <!-- ctl 눌렀을 때 클릭되는지봐서 연결되는지 확인해야 -->
+ 
+	 <!--  usedGoods 데이터 모두 가져오기 쿼리 _ from뒤에 테이블명 맞게 써주자-->
+ 	<select id="selectUsedGoodsList" resultType="com.example.lesson02.model.UsedGoods">  
+ 	<!-- dao의UsedGoodsMapper 에 쓰인 메소드 여기서 수행 ,   / 링크갔다가 alt 왼쪽화살표로 돌아올 수 있다-->
+ 		SELECT
+ 			*
+ 		FROM
+ 			`used_goods`	
+ 	</select>
+ 
+ 
+ 
+ </mapper>
