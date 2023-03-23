@@ -20,6 +20,58 @@
 			`id` = #{id}
  	</select>
  
- 	
+ 	<!-- ex02 
+ 	파라미터타입에 - Review클래스 객체? review 리뷰클래스주소 써주기
+ 	여기선 resultType은 쓰지 않는다 오히려 에러남
+ 	resultType은 select에서만 씀 / insert update delete 시 쓰지 않는다-->
+	<insert id="insertReview" parameterType="com.example.lesson03.model.Review">
+		INSERT INTO `new_review`
+		( <!-- id는(알아서됨) 빼고. 시간은 원래 관례적으로 같이 넣음 -->
+		<!-- 중간에 안 넣는게 있더라도 필드명 다 써야 -->
+			`storeId`
+			, `menu`
+			, `userName`
+			, `point`
+			, `review`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUES
+		(
+			#{storeId}
+			, #{menu}
+			, #{userName}
+			, #{point}
+			, #{review}
+			, NOW()
+			, NOW()
+		)
+	</insert> 	
+	
+	
+	<!--ex02_2 
+	위와다름 위는 review가 넘어왔다면 이번엔 map이 넘어옴-->
+	<insert id="insertReviewAsField" parameterType="map">
+			INSERT INTO `new_review`
+		( 
+			`storeId`
+			, `menu`
+			, `userName`
+			, `point`
+			, `review`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUES
+		(
+			#{storeId}
+			, #{menu}
+			, #{userName}
+			, #{point}
+			, #{review}
+			, NOW()
+			, NOW()
+		)
+	</insert>
  
  </mapper>

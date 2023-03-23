@@ -8,7 +8,7 @@ public class Review {
 	private int storeId;
 	private String menu;
 	private String userName;
-	private double point; // default value가 있어서 - null일 수 없어서 double 
+	private Double point; // default value(3.5)가 있어서 - null일 수 없어서 Double (double소문자와다름) / 글고 db상 decimal로 설정 
 	private String review;
 	private Date createdAt; // java.util 로 임포트
 	private Date updatedAt;
@@ -37,10 +37,10 @@ public class Review {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public double getPoint() {
+	public Double getPoint() {
 		return point;
 	}
-	public void setPoint(double point) {
+	public void setPoint(Double point) {
 		this.point = point;
 	}
 	public String getReview() {
