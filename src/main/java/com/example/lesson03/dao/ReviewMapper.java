@@ -8,6 +8,8 @@ import com.example.lesson03.model.Review;
 @Repository // .xml과 맵핑
 public interface ReviewMapper {
 	
+	// 이 DAO의 Mapper interface에서 메소드쓸때 붙는 @Param""은 얘와 연결되는 Mapper.xml에서 쓰이는 변수명
+	
 	// ex01
 	public Review selectReview(@Param("id") int id);
 	// @Param annotation - controller에서 쓰는 것과 다르다 혼동 x - 이건 mybatis
@@ -17,7 +19,7 @@ public interface ReviewMapper {
 	public int insertReview(Review review); // 파라미터 하나니 그냥 내린다
 	
 	// ex02_2
-	// @Param 이 있기 때문에 하나의 맵이 xml로 넘어간다
+	// @Param 이 있기 때문에 하나의 맵(@Param""부분이 key 뒤가 value)이 xml로 넘어간다
 	public int insertReviewAsField(
 			@Param("storeId") int storeId24,  
 			// 여기서도 뒤에 이름은 아무렇게 짓든 상관없는데, 
@@ -28,5 +30,15 @@ public interface ReviewMapper {
 			@Param("userName") String userName32, 
 			@Param("point") Double point341, 
 			@Param("review") String review2323);
+	
+	
+	// ex03 - update
+	public int updateReviewById(
+			@Param("id") int id,
+			@Param("review") String review);
+	
+	// ex04 - delete
+	// 아래도 int 로 하든 상관없음 (select빼고는 상관이 없다)
+	public void deleteReviewById(int id);
 	
 }

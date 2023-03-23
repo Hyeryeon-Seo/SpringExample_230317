@@ -35,6 +35,18 @@ public class ReviewBO {
 		return reviewMapper.insertReviewAsField(storeId12, menu33, userName44, point33, review21);
 	}
 	
+	// ex03 - update
+	// input : id, review     output : 성공된 행의 개수 int
+	public int updateReviewById(int id, String review) { // by id - by 뒤는 where절 내용 주로
+		return reviewMapper.updateReviewById(id, review);
+	}
+	
+	// ex04 - delete
+	// int해도 되지만 (삭제된 행 개수 받을 수 ) 그냥 안돌려줘도 됨 - void (아무것도 리턴 x)
+	public void deleteReviewById(int id) {
+		reviewMapper.deleteReviewById(id);
+	}
+	
 	
 	
 }

@@ -14,6 +14,7 @@ public class Lesson03Ex02RestController {
 	@Autowired
 	private ReviewBO reviewBO; // null아닌 상태
 	
+	// INSERT
 	// http://localhost/lesson03/ex02/1
 	// 객체를 활용해 insert
 	@RequestMapping("/1")

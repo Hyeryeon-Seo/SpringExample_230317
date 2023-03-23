@@ -4,7 +4,8 @@
  
  <mapper namespace="com.example.lesson03.dao.ReviewMapper">
  	
- 	<!--  bo요청으로 dao통해 여기서 수행  -->
+ 	<!--  bo요청으로 dao통해 여기서 수행  
+ 	resultTyp은 select문만 쓴다-->
  	<select id="selectReview" parameterType="int" resultType="com.example.lesson03.model.Review"> 
  		SELECT   <!-- 실무에서는 * 표시 안쓰고 무조건 다 일일히 쓴다 - 에러 가능성 방지 -->
  			`id`
@@ -50,7 +51,8 @@
 	
 	
 	<!--ex02_2 
-	위와다름 위는 review가 넘어왔다면 이번엔 map이 넘어옴-->
+	위와다름 위는 review가 넘어왔다면 이번엔 map이 넘어옴
+	Mapper에서 Param 어노테이션있으면 무조건 map-->
 	<insert id="insertReviewAsField" parameterType="map">
 			INSERT INTO `new_review`
 		( 
@@ -73,5 +75,26 @@
 			, NOW()
 		)
 	</insert>
+	
+	
+	<!-- ex03  update -update시 반드시 updatedAt도 함께 바꾼다 / ById. .. id에 해당하는 것만 바꿔야 _ where 조건절-->
+	<update id="updateReviewById" parameterType="map">
+		UPDATE `new_review`
+		SET
+			`review` = #{review}
+			, `updatedAt` = NOW()
+		WHERE
+			`id` = #{id}
+	</update>
+	
+	<!-- ex04 delete-  파라미터 int  / result타입도 없음 -->
+	<delete id="deleteReviewById" parameterType="int">
+		DELETE
+		FROM
+			`new_review`
+		WHERE 
+			`id` = #{id}
+	</delete>
+	
  
  </mapper>
