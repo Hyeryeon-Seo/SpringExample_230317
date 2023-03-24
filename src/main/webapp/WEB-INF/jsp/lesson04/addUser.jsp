@@ -15,9 +15,11 @@
 	<div class="container"> <!--container는 부트스트랩 에 있음 -->
 		<h1 class="mt-3">회원 정보 추가</h1>
 		
+		<!-- 지금은 input 파라미터 - 빈칸으로 넘어갈 수 있지만, 자바스크립트에서는 NULL아니면 채워져있어야 함 -->
 		<form method="post" action="/lesson04/ex01/add_user"> <!-- post방식으로 입력받아 데이터처리하는 주소 -->
 			<div class="form-group">
-				<label for="name"><b>이름</b></label> <!-- 뭐에 대한 라벨인지 for로, 아래 input에서는 for있으면 아래에도 id써줘야(동일하게), name도필수 아래 -->
+				<label for="name"><b>이름</b></label> <!-- 뭐에 대한 라벨인지 for로, 
+				아래 input에서는 for있으면 아래에도 id써줘야(동일하게), name도필수 - 그래야 넘어감 -->
 				<input type="text" id="name" name="name" class="form-control col-3" > <!-- placeholder 생략가능 -->
 			</div>
 			<div class="form-group">
