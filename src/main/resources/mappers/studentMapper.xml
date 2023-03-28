@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+ <mapper namespace="com.example.lesson04.dao.StudentMapper">
+ 	<insert id="insertStudent" 
+ 	parameterType="com.example.lesson04.model.Student"
+ 	useGeneratedKeys="true" keyProperty="id"> 
+ 	<!-- useGeneratedKeys 원래 꺼져있는데 키기 - useGeneratedKeys 를 통해 insert한 내용의 id 얻어내기 
+ 	(단지 insert만 하는 게 아니라- 만들어진 keyproperty 인 "id"를 받아오겠다는 뜻)  -->
+ 		INSERT INTO `new_student`
+ 		(
+			`name`
+			, `phoneNumber`
+			, `email`
+			, `dreamJob`
+			, `createdAt`
+			, `updatedAt`
+		)
+ 		VALUES
+ 		(
+ 			#{name}
+			, #{phoneNumber}
+			, #{email}
+			, #{dreamJob}
+			, NOW()
+			, NOW()
+ 		)
+ 	
+ 	</insert>
+ 	
+ 	<select id="selectStudentById" parameterType="int" resultType="com.example.lesson04.model.Student">
+ 		SELECT
+ 			`id`
+ 			, `name`
+			, `phoneNumber`
+			, `email`
+			, `dreamJob`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`new_student`
+		WHERE
+			`id` = #{id}
+ 	</select>
+ 
+ 
+ 
+ </mapper>

@@ -35,6 +35,7 @@ public class Lesson04Ex01Controller {
 	//(그냥 아래 페이지 바로 치고 들어갈 시): 405 method 불일치  - 꼭 위의 add_user_view 페이지 통해야 (아래 post라서)
 	// (위 주소에서 이동되는) addUser.jsp에서 입력받은 데이터 값 처리하는 페이지 -> 이후 afterAddUser.jsp로 이동시킨다 
 	// http://localhost/lesson04/ex01/add_user (회원가입 누르면 - > 데이터 처리 주소 .. -> 결과페이지: 입력 성공이라는 뷰페이지 ) 
+	// 정보입력페이지 addUser.jsp에서 post방식으로 입력받아 받는 페이지 /add_user >> 결과처리페이지로 return (afteraddUser)
 	@PostMapping("/add_user") // 이경우 requestMapping하면 안됨 get방식되면 안되므로 - 무조건 post방식만 허용하는 주소를 쉽게 쓰는 법은 아래와 같다
 	public String addUser( // String 리턴 - "jsp view 주소"
 			// id 는 안 받음 
