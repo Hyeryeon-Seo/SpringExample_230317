@@ -20,6 +20,9 @@ public interface UserMapper {
 	public User selectLatestUser(); 
 	// 하나의 유저 받기
 	
+	// 0: 거짓(존재하지않는다_중복x)   그외: 참 (중복)
+	public boolean existUserByName(String name);
+	
 	
 	
 }

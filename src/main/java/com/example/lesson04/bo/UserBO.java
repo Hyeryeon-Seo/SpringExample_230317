@@ -20,10 +20,12 @@ public class UserBO {
 	// input:X(입력값없이 그냥 가져올것)   output:User(최신 가입자) 
 	public User getLatestUser() {// 내가 만든 user import
 		return userMapper.selectLatestUser();
-		
-		
 	}
 	
+	// input:name   output:boolean (그렇다 아니다) 
+	public boolean existUserByName(String name) {  // true면중복
+		return userMapper.existUserByName(name);
+	}
 	
 	
 }

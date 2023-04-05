@@ -46,4 +46,18 @@
  		<!-- LIMIT 1 :최신 한명만 가져옴 -->
  	</select>
  
+ 
+ 	<!-- user 중복 확인 
+ 	result boolean  0이면 거짓 그외에는 다 참-->
+ 	<select id="existUserByName" parameterType="string" resultType="boolean"> 
+ 		SELECT
+ 			COUNT(1)
+ 			<!-- 1이든 * 넣든 -->
+ 		FROM
+ 			`new_user`
+ 		WHERE
+ 			`name` = #{name}
+ 			<!-- name이 이거면 count를 센다 -->
+ 	</select>
+ 
  </mapper>
