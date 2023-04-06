@@ -9,7 +9,7 @@
 <%--AJAX를 사용하려면 jquery 원본 필요--%>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-</head>
+</head>S
 <body>
 
 	<div class="container"> <!--container는 부트스트랩 에 있음 -->
@@ -61,11 +61,10 @@ $(document).ready(function() {
 				// {"code":1, "isDuplication":true}
 				// {"code":500, "errorMessage":"실패한 이유"}
 				// if (data.code == 1) {
+					// data는 map, dictionary
 					if (data.isDuplication) {
 						$("#nameStatusArea").append('<span class="text-danger">이름이 중복되었습니다.</span>');
 					}
-				
-				
 			}
 			, error:function(request, status, error) {
 				alert("중복확인에 실패했습니다. 관리자에게 문의해주세요.");
